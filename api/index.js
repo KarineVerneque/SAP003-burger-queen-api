@@ -1,6 +1,6 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-// import authorRoutes from './server/routes/AuthorRoutes';
+import productRoutes from './routes/productRoutes';
 
 const app = express();
 
@@ -9,11 +9,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const port = process.env.PORT || 3000;
 
-// app.use('/api/authors', authorRoutes);
+app.use('/api/products', productRoutes);
 
 // when a random route is inputed
 app.get('*', (req, res) => res.status(200).send({
-    message: 'Welcome to this API.',
+    message: 'Welcome to the Burger Queen API.',
 }));
 
 app.listen(port, () => {
