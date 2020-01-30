@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main"></div>
+</body>
+
+    <script>
+        fetch('http://localhost:3000/api/products')
+            .then(data => data.json())
+            .then(body => {
+                const template = body.map(item => {
+                return `
+                    <button class="menuButton">
+                        <p class="itemName">${item.name}</p>
+                        <p class="itemPrice">${item.price}</p>
+                    </button>
+                `}).join('');
+                document.querySelector('.main').innerHTML = template;
+            })
+    </script>
+
+    <style>
+        .menuButton {
+            background-color: gold;
+            /* border: none; */
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            border: 2px solid black;
+        }
+        .itemName{
+            font-size: 1.2em;
+        }
+    </style>
+</html>
