@@ -1,5 +1,6 @@
 'use strict';
-import configJson from '../api/server/src/config/config'
+import configJson from '../api/server/src/config/config.js'
+require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
